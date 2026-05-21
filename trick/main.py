@@ -25,9 +25,16 @@ var = int(8.9)
 print(var)#récupérer la partie entière 
 
 l=[1,2,3,4]
-print("|")
-for i in range(3):
-    
-    print(i,end="|")
 
-    
+for i in range(3): 
+    print(i)
+
+print()
+print("----------parité")
+#programme pour afficher les noms paires et impaires
+nbr=5
+
+if(nbr % 2 ==0):
+    print(f"le nombre {nbr} est paire")
+else:
+    print(f"le nombre {nbr} est impaire")
