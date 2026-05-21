@@ -11,3 +11,10 @@ print(nom)# le programme va récuerer rabs et l'afficher sur l'ecran
 #concaténer des chaine 
 print("bonjour "+nom+"!")#le + permet de concat les chaine de caracteres 
 
+#faire des opération sur les nombres
+
+age=31
+print(type(age)) #<class: 'int'>
+print("vous avez :",age,"ans")
+print("vous avez :",age+1,"ans")
+
