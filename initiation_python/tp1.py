@@ -18,3 +18,12 @@ print(type(age)) #<class: 'int'>
 print("vous avez :",age,"ans")
 print("vous avez :",age+1,"ans")
 
+#gestion des exceptions
+
+charr="33"
+try :
+    age_prochain=charr+1#il faut mettre int(charr)
+    print(charr)
+except:
+    print("erreur")
+
