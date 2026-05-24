@@ -52,3 +52,36 @@ li2.sort()#['ananas', 'banane', 'cerise', 'pasteque', 'pomme']
 print(li2)
 li2.reverse()
 print(li2)#['pomme','pasteque','cerise','banane','ananas']
+
+#les matrix
+print("des operatioins sur les matrix")
+m=[[5,4,3],
+   [3,4,5],
+   [1,2,3]]
+print(m[1][2])
+print('affichage de la matrice ')
+for i in m:
+    for j in i:
+        print(j, end=" ")
+    print()
+    
+print("un autre affichage :")
+for i in m:
+    print(i)      
+
+lig = len(m)
+print(lig)
+colonnes = len(m[0])
+print(colonnes)
+
+print("imp de la bib numpy")
+import numpy as np
+
+a = np.array([[1,2],[3,4]])
+b = np.array([[5,6],[7,8]])
+
+print(a + b)
+print(a - b)
+print(a * 2)
+print(a.dot(b))
+print(a.T)
