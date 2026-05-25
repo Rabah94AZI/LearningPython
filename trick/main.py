@@ -82,6 +82,28 @@ def som(n):
 
 print(som(3))#6
 print(som(10))#6
+# tres important: en python si je fais print ca va m'afficher none a la fin de la boucle 
+#solution A
+def mult(n):
+    for i in range(11):
+        print(i, "*",n,'=', i*n)
+     
+#mult(5)
 
+for i in range(11):
+    print(f'table de mult de {i}')
+    mult(i)
 
+# un affichage dans une liste
+def mult1(n):
+    lis=[]
+    for i in range(11):
+        lis.append(i*n)
+    return lis
+print(mult1(5))
 
+ #methode plus optimale    
+def mult2(n):
+    return [i*n for i in range(11)]
+
+print(mult2(5))
