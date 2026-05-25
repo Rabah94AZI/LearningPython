@@ -107,3 +107,35 @@ def mult2(n):
     return [i*n for i in range(11)]
 
 print(mult2(5))
+
+#ajouter un programme qui  devine un nombre 
+
+n=100
+import random
+rr= random.randint(1,100)
+print("la valeur de random est :",rr)
+print("la valeur de n est :", n)
+if rr==n:
+    print("vous avez gagné!")
+elif rr>n:
+    print("tres petit")
+elif rr<n:
+    print("tres grand")
+
+print("affichage inv d'une chaine de caractere")
+mot="david raya"
+print(mot[::-1])
+print("affichage de l'in en utilisant boucle for")
+mot2="david raya"
+inv=""
+for i in mot2:
+    inv=i+inv
+print(inv)
+
+mot3="salut rabah"
+inv_word=reversed(mot3)
+print(inv_word)
+
+mot3 = "salut rabah"
+inv_word = ''.join(reversed(mot3))
+print(inv_word)
