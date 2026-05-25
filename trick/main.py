@@ -70,3 +70,18 @@ def maxi(a,b,c):
 print(maxi(1,2,3)) #3
 print(maxi(-1,-2,-3)) #-1
 
+
+print("afficher la somme de 1 a N")
+
+def som(n):
+    s=0
+    for i in range(n+1):
+        #print(i)
+        s+=i
+    return s
+
+print(som(3))#6
+print(som(10))#6
+
+
+
