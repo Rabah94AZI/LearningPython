@@ -58,3 +58,15 @@ print(cal(2,3,"/")) #0.666
 print(cal(6,3,"/")) #2
 
 #programme afficher le plus grand nombre entre 3 nombres
+print("programme afficher le plus grand nombre entre 3 nombres")
+def maxi(a,b,c):
+    if a>b & a>c:
+        return a
+    elif b>a & b>c:
+        return b
+    else: 
+        return c
+    
+print(maxi(1,2,3)) #3
+print(maxi(-1,-2,-3)) #-1
+
