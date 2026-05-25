@@ -38,3 +38,23 @@ if(nbr % 2 ==0):
     print(f"le nombre {nbr} est paire")
 else:
     print(f"le nombre {nbr} est impaire")
+
+#programme calculatrice 
+print("-----------calculatrice ")
+
+def cal(a,b,op):
+    if op=="+":
+        return a+b
+    elif op=="-":
+        return a-b
+    elif op=="*":
+        return a*b
+    elif op=="/":
+        return a/b 
+print(cal(2,3,"+"))  #5
+print(cal(2,3,"-")) #-1
+print(cal(2,3,"*")) #6
+print(cal(2,3,"/")) #0.666
+print(cal(6,3,"/")) #2
+
+#programme afficher le plus grand nombre entre 3 nombres
