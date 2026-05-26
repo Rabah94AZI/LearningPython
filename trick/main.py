@@ -139,3 +139,10 @@ print(inv_word)
 mot3 = "salut rabah"
 inv_word = ''.join(reversed(mot3))
 print(inv_word)
+#compter les voyelles 
+mot="abcefgiuo"
+s=0
+for i in mot:
+    if i in ("a","u","i","o","e","y"):
+        s=s+1
+print(s)   
