@@ -140,9 +140,18 @@ mot3 = "salut rabah"
 inv_word = ''.join(reversed(mot3))
 print(inv_word)
 #compter les voyelles 
+print("compter le nombre des voyelles")
 mot="abcefgiuo"
 s=0
 for i in mot:
     if i in ("a","u","i","o","e","y"):
         s=s+1
 print(s)   
+
+#factoreil
+print("afficher le factoriel d'un nombre donner")
+def fact(n):
+    if n==0:
+        return 1
+    return n*fact(n-1)
+print(fact(3))
