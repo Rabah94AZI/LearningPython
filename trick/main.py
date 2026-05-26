@@ -155,3 +155,15 @@ def fact(n):
         return 1
     return n*fact(n-1)
 print(fact(3))
+
+#nombre premier 
+
+def premier(n):
+    if n < 2:
+        return False
+    for i in range(2, n):
+        if n % i == 0:
+            return False
+    return True        
+print(premier(5))
+print(premier(10))
