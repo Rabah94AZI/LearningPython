@@ -85,3 +85,7 @@ print(a - b)
 print(a * 2)
 print(a.dot(b))
 print(a.T)
+
+#
+print({1,2,3}&{2,3,4})
+print({1,2,3}or{2,3,4})

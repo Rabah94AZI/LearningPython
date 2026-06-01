@@ -167,3 +167,12 @@ def premier(n):
     return True        
 print(premier(5))
 print(premier(10))
+
+
+def comp(mot):
+    #cpt=" ".join(mot) #pour les caracteres 
+    cpt = mot.split()
+    return cpt.__len__()
+
+a="bonjour dev, comment vas tu !"
+print(comp(a))
