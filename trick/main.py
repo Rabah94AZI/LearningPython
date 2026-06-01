@@ -176,3 +176,28 @@ def comp(mot):
 
 a="bonjour dev, comment vas tu !"
 print(comp(a))
+import random
+a=random.randint(1,3)
+print(a)
+
+import random
+
+def jeu():
+    choix = ["pierre", "papier", "ciseaux"]
+    #random.choice c'est prédéfinie 
+    ordi = random.choice(choix)
+    
+    joueur = input("choisis pierre, papier ou ciseaux : ").lower()
+
+    print("ordinateur :", ordi)
+
+    if joueur == ordi:
+        print("égalité")
+    elif (joueur == "pierre" and ordi == "ciseaux") or \
+         (joueur == "papier" and ordi == "pierre") or \
+         (joueur == "ciseaux" and ordi == "papier"):
+        print("tu as gagné !")
+    else:
+        print("tu as perdu ")
+
+jeu()
