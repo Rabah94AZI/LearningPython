@@ -201,3 +201,16 @@ def jeu():
         print("tu as perdu ")
 
 jeu()
+
+#affich la somme des deux des
+import random
+def som_des():
+    a= random.randint(1,6)
+    b=random.randint(1,6)
+    t = a+b
+    print(f"le des 1 : {a}")
+    print(f"le des 2 : {b}")
+    print(f"résultat des deux dès : {t}")
+som_des()
+
+
