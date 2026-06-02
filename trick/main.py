@@ -57,8 +57,8 @@ print(cal(2,3,"*")) #6
 print(cal(2,3,"/")) #0.666
 print(cal(6,3,"/")) #2
 
-#programme afficher le plus grand nombre entre 3 nombres
-print("programme afficher le plus grand nombre entre 3 nombres")
+#programme afficher le plus grand nombre entre 3 nbr
+print("programme afficher le plus grand nombre entre 3 nbr")
 def maxi(a,b,c):
     if a>b & a>c:
         return a
@@ -213,4 +213,29 @@ def som_des():
     print(f"résultat des deux dès : {t}")
 som_des()
 
+def tri(liste):
+    n = len(liste)
+
+    for i in range(n):
+
+        for j in range(i+1, n):
+            if liste[j] < liste[i]:
+                i = j
+
+        liste[i], liste[i] = liste[i], liste[i]
+
+    return liste
+
+
+nbr= "3 2 1"
+print(nbr.split())
+map(int,nbr.split())
+print(list(map(int,nbr.split())))
+liste = list(map(int, nbr.split()))
+
+#nbr = input("Donne des nbr separes par espace : ")
+#retourne une liste des entoers a partir d'un chaine de nombre taper par l'utilisateur
+#liste = list(map(int, nbr.split()))
+liste=[3,4,2,1,3,5,6,1,1,2,4,5,3,0]
+print("Liste triee :", tri(liste))
 
