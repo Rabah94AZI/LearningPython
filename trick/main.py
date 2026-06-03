@@ -109,7 +109,6 @@ def mult2(n):
 print(mult2(5))
 
 #ajouter un programme qui  devine un nombre 
-
 n=100
 import random
 rr= random.randint(1,100)
@@ -140,8 +139,6 @@ mot3 = "salut rabah"
 inv_word = ''.join(reversed(mot3))
 print(inv_word)
 
-
-
 wods=["python", "is","fun"]
 se=""
 for i,w in enumerate(wods):
@@ -153,6 +150,21 @@ print(se)
 #programme optimisé
 wods=["python", "is","fun"] 
 print(" ".join(wods))
+
+
+#decorateur
+def my_decorator(func):
+    def wrapper():
+        print("avant l'appel de la fonction")
+        result = func()
+        print("apres l'appel de la fonction")
+        return result
+    return wrapper
+@my_decorator
+def saluer():
+    print("Bonjour !")
+
+saluer()
 #compter les voyelles 
 print("compter le nombre des voyelles")
 mot="abcefgiuo"
