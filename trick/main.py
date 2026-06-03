@@ -139,6 +139,20 @@ print(inv_word)
 mot3 = "salut rabah"
 inv_word = ''.join(reversed(mot3))
 print(inv_word)
+
+
+
+wods=["python", "is","fun"]
+se=""
+for i,w in enumerate(wods):
+    se+=w
+    print(i,w)
+    if i < len(wods)-1:
+        se+=" "
+print(se)
+#programme optimisé
+wods=["python", "is","fun"] 
+print(" ".join(wods))
 #compter les voyelles 
 print("compter le nombre des voyelles")
 mot="abcefgiuo"
