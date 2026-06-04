@@ -73,9 +73,9 @@ print(maxi(-1,-2,-3)) #-1
 
 print("afficher la somme de 1 a N")
 
-def som(n):
+def som(t):
     s=0
-    for i in range(n+1):
+    for i in range(t+1):
         #print(i)
         s+=i
     return s
@@ -84,9 +84,9 @@ print(som(3))#6
 print(som(10))#6
 # tres important: en python si je fais print ca va m'afficher none a la fin de la boucle 
 #solution A
-def mult(n):
+def mult(t):
     for i in range(11):
-        print(i, "*",n,'=', i*n)
+        print(i, "*",t,'=', i*t)
      
 #mult(5)
 
@@ -95,30 +95,30 @@ for i in range(11):
     mult(i)
 
 # un affichage dans une liste
-def mult1(n):
+def mult1(t):
     lis=[]
     for i in range(11):
-        lis.append(i*n)
+        lis.append(i*t)
     return lis
 print(mult1(5))
 
  #methode plus optimale    
-def mult2(n):
-    return [i*n for i in range(11)]
+def mult2(t):
+    return [i*t for i in range(11)]
 
 print(mult2(5))
 
 #ajouter un programme qui  devine un nombre 
-n=100
+t=100
 import random
 rr= random.randint(1,100)
 print("la valeur de random est :",rr)
-print("la valeur de n est :", n)
-if rr==n:
+print("la valeur de t est :", t)
+if rr==t:
     print("vous avez gagné!")
-elif rr>n:
+elif rr>t:
     print("tres petit")
-elif rr<n:
+elif rr<t:
     print("tres grand")
 
 print("affichage inv d'une chaine de caractere")
@@ -176,19 +176,19 @@ print(s)
 
 #factoreil
 print("afficher le factoriel d'un nombre donner")
-def fact(n):
-    if n==0:
+def fact(t):
+    if t==0:
         return 1
-    return n*fact(n-1)
+    return t*fact(t-1)
 print(fact(3))
 
 #nombre premier 
 
-def premier(n):
-    if n < 2:
+def premier(t):
+    if t < 2:
         return False
-    for i in range(2, n):
-        if n % i == 0:
+    for i in range(2, t):
+        if t % i == 0:
             return False
     return True        
 print(premier(5))
@@ -240,11 +240,11 @@ def som_des():
 som_des()
 
 def tri(liste):
-    n = len(liste)
+    t = len(liste)
 
-    for i in range(n):
+    for i in range(t):
 
-        for j in range(i+1, n):
+        for j in range(i+1, t):
             if liste[j] < liste[i]:
                 i = j
 
@@ -265,3 +265,18 @@ liste = list(map(int, nbr.split()))
 liste=[3,4,2,1,3,5,6,1,1,2,4,5,3,0]
 print("Liste triee :", tri(liste))
 
+#Bubble sort
+
+print("----------------------------Bubble sort-----------------------------------")
+def bubble(a):
+    t=len(a)
+    for p in range(t-1):
+        swap=False
+        for i in range(t-1-p):
+            if a[i]>a[i+1]:
+                a[i], a[i+1]=a[i+1],a[i]
+                swap=True
+        if not swap:
+                break
+    return a
+print(bubble([6,5,4,2,1,4,6,8,0,1,2,4]))
