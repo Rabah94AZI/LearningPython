@@ -127,3 +127,10 @@ print(x)
 print(y)
 print(c)
 
+x= [3,1,2,1]
+y=x.sort()
+print(y, x)
+
+names=["rabah","anis"]
+ages = [31,32]
+print(list(zip(names,ages)))
