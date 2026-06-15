@@ -90,3 +90,40 @@ print(a.T)
 print({1,2,3}&{2,3,4})
 print({1,2,3}or{2,3,4})
 
+for i in range(1,4):
+    print(i,end="\n")
+
+nums=[1,2,3,4]
+result= list(map(lambda x:x*2 , nums))
+print(result)
+
+li=["python is fun"]
+si="java is not"
+#pour retourner une chaine de caracter
+print(" ".join(li))
+#pour retourner une liste des chaine de caractere 
+print(si.split(" "))      
+
+for i in range(1,4):
+    print(i)
+for i in range(1,4):
+    print(i,end=" ")
+#par default quand tu afis un print ya un saut de ligne automatique 
+print("")
+for i in range(1,4):
+    print(i,end="\n")
+
+#on peut simuler un barre de progression 
+import time
+for i in range(5):
+    print(".", end="")
+    time.sleep(0.5)
+
+x=[1,2,3]
+y=x
+c=x.copy()
+y+=[4]
+print(x)
+print(y)
+print(c)
+
