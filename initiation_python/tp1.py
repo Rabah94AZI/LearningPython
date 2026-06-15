@@ -134,3 +134,11 @@ print(y, x)
 names=["rabah","anis"]
 ages = [31,32]
 print(list(zip(names,ages)))
+
+#si tu veux utiliser un retour multiple(flux de valeurs) et quand tu veux pas stocker en mémoire 
+def count_up():
+
+    yield 1 
+    yield 2
+gen = count_up()
+print(next(gen))
