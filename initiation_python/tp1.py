@@ -216,3 +216,16 @@ print(test)
 #pour afficher le byte d'un caractere 
 x=b"ABC"
 print(x[0])
+
+d={}
+d[1]="A"
+d[True]="B"
+d[1.0]="C"
+print(d)
+print(len(d))
+
+a=[1,2]
+b=a*2
+b[0]=99
+print("a ",a)
+print("b ",b)
