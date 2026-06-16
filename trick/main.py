@@ -280,3 +280,83 @@ def bubble(a):
                 break
     return a
 print(bubble([6,5,4,2,1,4,6,8,0,1,2,4]))
+
+n=6
+for  i in range(1,n+1):
+    #n-i c'est le decalage plus end= " " pour faie le schema
+    print(" " * (n - i), end="")
+    for j in range(i):
+        print("*", end =" ")
+    print()
+n=6
+for i in range(1,n+1):
+
+    for j in range(i):
+        print("*", end =" ")
+    print()
+
+n = 6
+for i in range(n, 0, -1):
+    for j in range(i):
+        print("*", end=" ")
+    print()
+
+
+n=6
+for  i in range(1,n+1):
+    # n-i c'est le decalage plus end= " " pour faie le schema
+    print(" " * (n - i), end="")
+    for j in range(i):
+        print("*", end =" ")
+    print()
+for  i in range(n-1,0,-1):
+    # n-i c'est le decalage plus end= " " pour faie le schema
+    print(" " * (n - i), end="")
+    for j in range(i):
+        print("*", end =" ")
+    print()
+
+n=6
+for i in range(1,n+1):
+    for j in range(1,i+1):
+        print(j,end="")
+    print()
+
+n = 6
+for i in range(n):
+    for j in range(n):
+        if i == 0 or i == n-1 or j == 0 or j == n-1:
+            print("*", end=" ")
+        else:
+            print(" ", end=" ")
+    print()
+
+#table multiplication 
+for i in range(11):
+    
+    for j in range(1,11):
+        print(j,"*",i,"=",i*j,end="|")
+    print()
+
+n = 6
+for i in range(n, 0, -1):
+    print("  " * (n - i), end="")
+    for j in range(i):
+        print("*", end=" ")
+    print()
+
+n=5
+for  i in range(n,0,-1):
+    for j in range(i,0,-1):
+        print(j," ",end="")
+    print()
+
+"""
+5 4 3 2 1
+4 3 2 1
+3 2 1
+2 1
+1
+"""
+
+

@@ -142,3 +142,59 @@ def count_up():
     yield 2
 gen = count_up()
 print(next(gen))
+#manipulation dictionnaire
+d={'x':10,'y':20,'z':30}
+d['y'] = d['z']
+print("affichage apres l'afffectation")
+print(d)
+del d['x']
+print("affichage apres la suppression de x")
+d['z']=d['y']+5
+print(d)
+
+def fibo(n):
+    if n<=1:
+        return n
+    else:
+        return fibo(n-1) + fibo(n-2)
+print(fibo(0))
+print(fibo(1))
+print(fibo(2))
+print(fibo(3))    
+print(fibo(4))
+print(fibo(5))
+print(fibo(6))
+print(fibo(7))
+
+def fact(n):
+    if n==0:
+        return 1
+    else:
+        return n*fact(n-1)
+print(fact(0))
+print(fact(1))
+print(fact(2))
+print(fact(3))
+print(fact(4))
+print(fact(5))
+print(fact(6))
+x=range(0,4)
+print(x)#affiche lobjet range(0,4)
+print(list(x))#affiche une liste de [0,1,2,3]
+
+#on utilise _ lorsqu'on a pas besoin de la variable
+for _ in range(7):
+    print("hello")
+for i in range(7):
+    print(i," ok")
+
+a, *_ = [1, 2, 3, 4] #pour ignorer plsr valeurs 
+print(a)
+
+data = [(1, "A"), (2, "B"), (3, "C")]
+
+for _, lettre in data:
+    print(lettre)
+for i,j in data:
+    print(i,j)
+
