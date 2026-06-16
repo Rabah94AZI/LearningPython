@@ -359,4 +359,54 @@ for  i in range(n,0,-1):
 1
 """
 
+n=6
+for i in range(1,n):
+    for j in range(1,n):
+        if i==j:
+            print(" "*(n-i),"*",end="")
+    print()
 
+"""
+*       *
+  *   *
+    *
+  *   *
+*       *
+"""
+
+n=5
+for i in range(n):
+    for j in range(n):
+        if i == j or i + j == n - 1:
+            print("*", end=" ")
+        else:
+            print(" ", end=" ")
+    print()
+
+n=1
+
+for i in range(1,5):
+    for j in range(i):
+        print(n,end ="")
+        n+=1
+    print()
+
+"""
+1
+2 3
+4 5 6
+7 8 9 10
+"""
+
+for i in range(1,5):
+    for j in range(i):
+        print(i,end="")
+    print()
+
+
+"""
+1
+2 2
+3 3 3
+4 4 4 4
+"""

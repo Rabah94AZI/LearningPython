@@ -198,3 +198,17 @@ for _, lettre in data:
 for i,j in data:
     print(i,j)
 
+#les tuples
+
+tup=("rabah","anis","mohamed","bilal")
+for i in range(0,4):
+    print(tup[i])
+
+def modif_valeur(a):
+    a=10
+    print(a)
+
+test=5
+print(test)
+modif_valeur(test)
+print(test)
