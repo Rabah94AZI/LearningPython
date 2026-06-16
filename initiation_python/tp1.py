@@ -212,3 +212,7 @@ test=5
 print(test)
 modif_valeur(test)
 print(test)
+
+#pour afficher le byte d'un caractere 
+x=b"ABC"
+print(x[0])
