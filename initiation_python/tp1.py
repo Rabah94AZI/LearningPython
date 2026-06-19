@@ -229,3 +229,57 @@ b=a*2
 b[0]=99
 print("a ",a)
 print("b ",b)
+
+depuis_string = list('Python')
+print(depuis_string) # ['P','y','t','h','o','n']
+
+depuis_tuple  = list((1, 2, 3))          # [1, 2, 3]
+print(depuis_tuple)
+
+lst = [0,3, 1, 4, 1, 5, 9, 2, 6]
+
+x = lst.pop()
+y = lst.pop(0)
+print(y)
+print(lst)
+print(x)
+nums = [3, 1, 4, 1, 5, 9]
+print(len(nums))                    # 6
+print(sum(nums))                    # 23
+print(min(nums), max(nums))         # 1, 9
+print(sorted(nums))                 # [1,1,3,4,5,9] (nouvelle liste)
+print(list(reversed(nums)) )        # [9,5,1,4,1,3]
+
+#le ap pour transformer les donnees et filter pour filtrer
+cc=list(map(lambda x: x**2, nums))   # [9,1,16,1,25,81]
+print(cc)
+pp=list(filter(lambda x: x>3, nums)) # [4, 5, 9]
+print(pp)
+#ca ava donner des valeur 1 et 0
+tt=list(map(lambda x: x>3, nums))
+print(tt)
+
+a=[1,2]
+b=[3,4,5]
+c=b*2
+print(c)
+print(a+b)
+
+t=(1,2,3)
+t=t+(4,)
+print(t)
+t=t*2
+print("t*2:")
+print(t)
+t=t[:5]
+print(t)
+
+#1 2 4 5
+for i in range(1,6):
+    if i ==3:
+        continue
+    print(i)
+a='4'
+b='5'
+c=a*int(b)
+print(c)  #44444
