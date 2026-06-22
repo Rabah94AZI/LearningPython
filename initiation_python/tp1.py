@@ -268,6 +268,7 @@ print(a+b)
 t=(1,2,3)
 t=t+(4,)
 print(t)
+
 t=t*2
 print("t*2:")
 print(t)
@@ -283,3 +284,40 @@ a='4'
 b='5'
 c=a*int(b)
 print(c)  #44444
+
+d = {'nom': 'Alice', 'age': 30, 'ville': 'Paris'}
+v = d.pop('xyz', 'défaut')
+print(v)
+del d['ville']
+print(d)             # supprime la clé (KeyError si absent)
+v = d.pop('age') 
+print(v)
+
+
+dd = {'a': 1, 'b': 2, 'c': 3}
+aa=list(dd.keys())
+print(aa)
+
+t2 = ([1,2], 'x')
+t2[0].append(3)
+print(t2)
+t = (1, 2, 3, 2, 4, 2)
+t.count(2)          # 3
+t.index(3)          # 2
+print(t.index(2, 2))
+
+lst = [3, 1, 4, 1, 5, 9, 2, 6]
+x = lst.pop(0) 
+print(x)
+print(lst)
+
+print([(x,y) for x in range(3) for y in range(3) ] )
+
+lst=[1,2,3,4,5]
+aa=6
+rep=[]
+for i in range(len(lst)):
+    for j in range(i+1,len(lst)):
+        if lst[i]+lst[j]==aa:
+            rep.append((lst[i],lst[j]))
+print(rep)
