@@ -321,3 +321,11 @@ for i in range(len(lst)):
         if lst[i]+lst[j]==aa:
             rep.append((lst[i],lst[j]))
 print(rep)
+
+a=[1,2]
+b=[1,2]
+print(a==b,a in b)
+
+matrix=[[0]*3]*3
+matrix[0][0]=1
+print(matrix)
