@@ -328,4 +328,26 @@ print(a==b,a in b)
 
 matrix=[[0]*3]*3
 matrix[0][0]=1
-print(matrix)
+print(matrix[0])
+
+l1=[1,2,3,4]
+l2=[3,4,5,6]
+ran=list(set(l1) & set(l2))
+print(ran)
+ran1=list(set(l1) - set(l2))
+print(ran1)
+ran2=list(set(l1) | set(l2))
+print(ran2)
+ran3=list(set(l1) ^ set(l2))
+print(ran3)
+
+def asy(s):
+    return sum(1 for char in s if char.lower() in "oueyia")
+print(asy("audiu"))
+
+def somm(a,b):
+    while b!=0:
+        a,b=b,a<b
+    return a 
+
+
