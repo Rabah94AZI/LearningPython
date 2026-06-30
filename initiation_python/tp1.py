@@ -347,7 +347,49 @@ print(asy("audiu"))
 
 def somm(a,b):
     while b!=0:
-        a,b=b,a<b
+        a,b=b,a%b
     return a 
 
+print(somm(8,12))
+d = {'nom': 'Alice', 'age': 30, 'actif': True}
+data = {'a':1,'b':2, 'c':3}
+print(data)
+
+lst = [3, 1, 4, 1, 5, 9, 2, 6]
+copie = lst.copy()     # copie shallow
+lst.clear()
+
+print(copie)
+print(len(copie))
+
+a=[x for x in range(10)]
+print(a)
+a=range(10)
+print(list(a))
+
+mots  = ['hello', 'world', 'python']
+majus = list(map(lambda i:i.upper(),mots))
+print(majus)
+
+d = dict(nom='Alice', age=30)
+print(d)
+
+d = {'nom': 'Alice', 'age': 30, 'ville': 'Paris'}
+print(d.get('pays', 'FR'))
+print(d)
+
+original  = {'a': 1, 'b': 2, 'c': 3}
+inversé   = {v: k for k, v in original.items()}
+print(original)
+
+num =[10,20,30,40]
+num.remove(20)
+print(num)
+num.pop(1)
+print(num)
+
+x= True
+y= False
+def test():
+    return y
 
