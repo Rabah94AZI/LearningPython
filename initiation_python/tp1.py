@@ -388,8 +388,75 @@ print(num)
 num.pop(1)
 print(num)
 
-x= True
+x= 10
 y= False
 def test():
-    return y
+    print(x)
+    #x=20  # cette ligne qui  impose que c local
+test()
 
+x= 10
+def test():
+    global x
+    #print(x)
+    x=20
+test()
+print(x)
+
+jou=2
+a="aujourd'hui on est le "+ int(jou)
+print(a)
+
+lst = [3, 1, 4, 1, 5, 9, 2, 6, 1]
+print(lst.count(1))
+#lst.remove  remove une valeur dans une liste 
+#del lst[index]  remove avec les index d'une liste 
+v1,v2=1,2
+print(type(v1),type(v2))
+
+data={"name":"wayne","age":23}
+print(data)
+print(data.get("name"))
+print("affichage avec les index :")
+print(data["name"])
+print(data.get("adresse","inconnu")) #affiche inconnu 
+#print(data["adresse"]) erreur 
+print(data)  #affiche le dictionnaire data initial
+#print(data.haskey("nom")) 
+print("--------------les cles de mon dictionnaire")
+for i in data.keys():
+    print(i)
+print("--------------les valeurs de mon dictionnaire")
+for val in data.values():
+    print(val)
+print("--------------les cles_valeurs de mon dictionnaire")
+data={"name":"wayne","age":23}
+print(data)
+for i,v in data.items():
+    print(i,v)
+for i,v in data.items():
+    print(v,i)
+
+def aug(*varr):
+    return varr[0]+varr[1]
+print(aug(1,0))
+
+def zz(*args):
+    for i in args:
+        print(i)
+
+zz(1,2,2)
+
+def zz(*args):
+    print(args)
+zz(1,2,2)
+
+x=True
+def test():
+    x=False
+    print(x)
+test()
+print(x)
+
+print(bin(55))
+print(callable(test()))
