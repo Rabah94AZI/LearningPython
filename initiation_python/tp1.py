@@ -345,12 +345,7 @@ def asy(s):
     return sum(1 for char in s if char.lower() in "oueyia")
 print(asy("audiu"))
 
-def somm(a,b):
-    while b!=0:
-        a,b=b,a%b
-    return a 
 
-print(somm(8,12))
 d = {'nom': 'Alice', 'age': 30, 'actif': True}
 data = {'a':1,'b':2, 'c':3}
 print(data)
@@ -381,6 +376,7 @@ print(d)
 original  = {'a': 1, 'b': 2, 'c': 3}
 inversé   = {v: k for k, v in original.items()}
 print(original)
+print(inversé)
 
 num =[10,20,30,40]
 num.remove(20)
@@ -391,9 +387,11 @@ print(num)
 x= 10
 y= False
 def test():
+    x=1
     print(x)
     #x=20  # cette ligne qui  impose que c local
 test()
+print(x)
 
 x= 10
 def test():
@@ -440,6 +438,8 @@ for i,v in data.items():
 def aug(*varr):
     return varr[0]+varr[1]
 print(aug(1,0))
+print(aug(1,0,2,3))
+print(aug(1,2))
 
 def zz(*args):
     for i in args:
@@ -471,3 +471,7 @@ l=list(map(addone, l))
 print(l)
 print(l)
 
+print({x: x**2 for x in range(6)})
+
+nu=[10,20,30,40,50]
+print(nu[3:1:-1])
