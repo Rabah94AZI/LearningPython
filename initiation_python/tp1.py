@@ -460,3 +460,14 @@ print(x)
 
 print(bin(55))
 print(callable(test()))
+
+print("jean claude".isalnum()) #false prck ya espace entre les deux mots
+print("jean claude".isalpha()) #false prck ya espace entre les deux mots
+
+def addone(x):
+    return x+1
+l=[1,2,3]
+l=list(map(addone, l))
+print(l)
+print(l)
+
