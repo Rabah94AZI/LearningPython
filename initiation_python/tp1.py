@@ -389,13 +389,13 @@ y= False
 def test():
     x=1
     print(x)
-    #x=20  # cette ligne qui  impose que c local
+    x=20  # cette ligne qui  impose que c local
 test()
 print(x)
 
 x= 10
 def test():
-    global x
+    #global x
     #print(x)
     x=20
 test()
@@ -475,3 +475,27 @@ print({x: x**2 for x in range(6)})
 
 nu=[10,20,30,40,50]
 print(nu[3:1:-1])
+
+li =[1,2,3]
+print(li and [] or [99])
+
+print(2+4*5)
+
+a =[1,2,3,4]
+b=a[1:4]
+b[0]=10
+print(a)
+print(b)
+
+a,b="12"
+b,c="34"
+print(a,b,c)#affectation selon les caracteres
+
+def outer():
+    x=10
+    def inner():
+        print(x)
+    return inner
+func=outer()
+func()
+
