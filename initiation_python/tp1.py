@@ -499,3 +499,30 @@ def outer():
 func=outer()
 func()
 
+a =[1,2,3,4]
+print(a)
+print(a[1:])
+def add(a,b):
+    return a+b
+
+reuslt=list(map(add,a,a[1:]))
+print(reuslt)
+
+for i in range(3):
+    f= lambda x: x+i
+
+print(f(10))
+
+
+funcs=[]
+for i in range(3):
+    funcs.append(lambda :i)
+
+print([f() for f in funcs])
+
+x = [55,10,84]
+y =iter(x)
+print(y)
+print(next(y))
+#x.clear()
+print(list(y))
