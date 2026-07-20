@@ -518,7 +518,13 @@ funcs=[]
 for i in range(3):
     funcs.append(lambda :i)
 
+funcs=[]
+funcs.append(lambda: 0)
+funcs.append(lambda: 1)
+funcs.append(lambda: 2)
+
 print([f() for f in funcs])
+print(funcs)
 
 x = [55,10,84]
 y =iter(x)
@@ -527,3 +533,8 @@ print(next(y))
 #x.clear()
 print(list(y))
 
+number=[1,2,3,4]
+
+result= map(lambda x:x*2,filter(lambda x:x%2==0,number))
+
+print(list(result))
