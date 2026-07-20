@@ -538,3 +538,4 @@ number=[1,2,3,4]
 result= map(lambda x:x*2,filter(lambda x:x%2==0,number))
 
 print(list(result))
+
