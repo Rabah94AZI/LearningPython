@@ -539,3 +539,9 @@ result= map(lambda x:x*2,filter(lambda x:x%2==0,number))
 
 print(list(result))
 
+class Test:
+    x=10
+a=Test()
+b=Test()
+a.x=20
+print(Test.x,a.x,b.x) #10 20 10
