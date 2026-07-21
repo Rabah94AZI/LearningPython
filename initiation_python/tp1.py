@@ -545,3 +545,15 @@ a=Test()
 b=Test()
 a.x=20
 print(Test.x,a.x,b.x) #10 20 10
+
+s= {1,2,3,4}
+s.add(2)
+print("affichage apres add",s)
+s.remove(3)
+print("affichage apres supp",s)
+s.discard(5)
+print("affichage apres discard",s)
+print("affichage sorted",sorted(s)) #cava afficher une liste car ya sorted
+
+x=[1,2,3]
+print(x[True],x[False],x[False],x[True]) #indexation 0,1 qui remplassent False,True
