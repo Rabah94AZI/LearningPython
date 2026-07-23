@@ -557,3 +557,13 @@ print("affichage sorted",sorted(s)) #cava afficher une liste car ya sorted
 
 x=[1,2,3]
 print(x[True],x[False],x[False],x[True]) #indexation 0,1 qui remplassent False,True
+
+x=[1,2,3]
+print(x(0)) #erreur
+
+
+x=[1,2,3]
+g= (x.pop() for _ in range(2)) #générateur
+x.insert(0,99)
+print(list(g))                                 #[3, 2]
+print(x)                                       #[99, 1]
