@@ -582,4 +582,14 @@ countdown()
 print("and ici")
 countdown()   #affiche rien vu la var vaut 0 maintenant 
 
+#operation print
+print("python"[100:]) # python (0,1,2,3,4,5) y'a pas l'indice 100 donc chaine vide
+print("python"[:100]) # il prend du début a 100 donc prendre toute la chaine
 
+#sup les duplication avec fromkeys
+numbers = [4,1,2,2,3,1,4]
+unique = list(dict.fromkeys(numbers)) #elimine les doublons, 
+print(unique)
+
+unique = list(set(numbers)) # supprime les doublons mais peut ne pas garder l'ordre
+print(unique)
