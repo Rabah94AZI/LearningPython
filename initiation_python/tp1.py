@@ -593,3 +593,17 @@ print(unique)
 
 unique = list(set(numbers)) # supprime les doublons mais peut ne pas garder l'ordre
 print(unique)
+
+
+def add(item,items=[]):
+    items.append(item)
+    return items
+
+print(add("HTML"))
+print(add("PYTHON"))
+
+x= 2
+def func (a,b=x):
+    return a+b
+x = 5
+print(func(3))  #5
