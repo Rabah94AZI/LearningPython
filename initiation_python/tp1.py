@@ -567,3 +567,19 @@ g= (x.pop() for _ in range(2)) #générateur
 x.insert(0,99)
 print(list(g))                                 #[3, 2]
 print(x)                                       #[99, 1]
+
+count = 5
+def countdown():
+    global count  #la on touche a la var global
+    if count == 0:
+        return
+    print(count)
+    count-=1
+    countdown()
+
+print("ici")
+countdown()
+print("and ici")
+countdown()   #affiche rien vu la var vaut 0 maintenant 
+
+
