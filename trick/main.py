@@ -240,7 +240,7 @@ def jeu():
     else:
         print("Tu as perdu !")
 
-jeu()
+#jeu()
 
 #affich la somme des deux des
 
@@ -289,7 +289,7 @@ def bubble(valuee):
     "algorithme de tri bubble"
     t=len(valuee)
     for p in range(t-1):
-        
+
         swap=False
 
         for i in range(t-1-p):
