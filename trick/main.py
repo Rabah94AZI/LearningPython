@@ -1,4 +1,4 @@
-
+import random
 #test sur les fonctions 
 def lo(x):
     if x==1:
@@ -60,9 +60,9 @@ print(cal(6,3,"/")) #2
 #programme afficher le plus grand nombre entre 3 nbr
 print("programme afficher le plus grand nombre entre 3 nbr")
 def maxi(a,b,c):
-    if a>b & a>c:
+    if a>b and a>c:
         return a
-    elif b>a & b>c:
+    elif b>a and b>c:
         return b
     else: 
         return c
@@ -110,7 +110,7 @@ print(mult2(5))
 
 #ajouter un programme qui  devine un nombre 
 t=100
-import random
+
 rr= random.randint(1,100)
 print("la valeur de random est :",rr)
 print("la valeur de t est :", t)
@@ -202,11 +202,11 @@ def comp(mot):
 
 a="bonjour dev, comment vas tu !"
 print(comp(a))
-import random
+
 a=random.randint(1,3)
 print(a)
 
-import random
+
 
 def jeu():
     choix = ["pierre", "papier", "ciseaux"]
@@ -229,7 +229,7 @@ def jeu():
 jeu()
 
 #affich la somme des deux des
-import random
+
 def som_des():
     a= random.randint(1,6)
     b=random.randint(1,6)
@@ -240,15 +240,17 @@ def som_des():
 som_des()
 
 def tri(liste):
+    """Trie une liste avec une sélection du minimum."""
     t = len(liste)
 
     for i in range(t):
+        minimum = i
 
-        for j in range(i+1, t):
-            if liste[j] < liste[i]:
-                i = j
+        for j in range(i + 1, t):
+            if liste[j] < liste[minimum]:
+                minimum = j
 
-        liste[i], liste[i] = liste[i], liste[i]
+        liste[i], liste[minimum] = liste[minimum], liste[i]
 
     return liste
 
@@ -351,13 +353,7 @@ for  i in range(n,0,-1):
         print(j," ",end="")
     print()
 
-"""
-5 4 3 2 1
-4 3 2 1
-3 2 1
-2 1
-1
-"""
+
 
 n=6
 for i in range(1,n):
@@ -366,13 +362,7 @@ for i in range(1,n):
             print(" "*(n-i),"*",end="")
     print()
 
-"""
-*       *
-  *   *
-    *
-  *   *
-*       *
-"""
+
 
 n=5
 for i in range(n):
@@ -391,12 +381,7 @@ for i in range(1,5):
         n+=1
     print()
 
-"""
-1
-2 3
-4 5 6
-7 8 9 10
-"""
+
 
 for i in range(1,5):
     for j in range(i):
@@ -404,9 +389,3 @@ for i in range(1,5):
     print()
 
 
-"""
-1
-2 2
-3 3 3
-4 4 4 4
-"""
