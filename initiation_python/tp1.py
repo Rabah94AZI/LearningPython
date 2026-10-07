@@ -1,15 +1,17 @@
+import time
+import numpy as np
 print("lancer mon premier programme python")
 print("Bonjour")#python va afficher Bonjour a l'ecran
-#il faudra le lancer sur un terminal 
+#il faudra le lancer sur un terminal
 #nom = input("Quel est votre nom")
-#print("Bonjour"+nom)# si tu as code runner sur vscode ca va pas te donner la main pour interagir 
-#sol : # selectionner la ligne, clique droit puis run dans un terminal 
-#utilisation des variables 
+#print("Bonjour"+nom)# si tu as code runner sur vscode ca va pas te donner la main pour interagir
+#sol : # selectionner la ligne, clique droit puis run dans un terminal
+#utilisation des variables
 nom="rabs"
 print(nom)# le programme va récuerer rabs et l'afficher sur l'ecran
 
-#concaténer des chaine 
-print("bonjour "+nom+"!")#le + permet de concat les chaine de caracteres 
+#concaténer des chaine
+print("bonjour "+nom+"!")#le + permet de concat les chaine de caracteres
 
 #faire des opération sur les nombres
 
@@ -24,16 +26,16 @@ charr="33"
 try :
     age_prochain=charr+1#il faut mettre int(charr)
     print(charr)
-except:
+except ValueError:
     print("erreur")
 
-#les listes 
+#les listes
 print("des opérations sur les listes")
 li = [10,20,30,40,50]
 print(li[0])#le premier element :10
 print(li[-1])#le dernier element : 50
 print(li[1:3])#récupérer 20 30
-print(li[:3])# récupére 10 20 30 
+print(li[:3])# récupére 10 20 30
 print(li[2:])#les elements a partir de l'indice 2 : 30 40 50
 
 li2=['pomme','banane','cerise']
@@ -48,7 +50,7 @@ li2.remove("dates")#['pomme','ananas','banane','cerise','pasteque','oignons']
 print(li2)
 li2.pop()#['pomme','ananas','banane','cerise','pasteque']
 print(li2)
-li2.sort()#['ananas', 'banane', 'cerise', 'pasteque', 'pomme']
+#li2.sort()#['ananas', 'banane', 'cerise', 'pasteque', 'pomme']
 print(li2)
 li2.reverse()
 print(li2)#['pomme','pasteque','cerise','banane','ananas']
@@ -64,10 +66,10 @@ for i in m:
     for j in i:
         print(j, end=" ")
     print()
-    
+
 print("un autre affichage :")
 for i in m:
-    print(i)      
+    print(i)
 
 lig = len(m)
 print(lig)
@@ -75,7 +77,7 @@ colonnes = len(m[0])
 print(colonnes)
 
 print("imp de la bib numpy")
-import numpy as np
+
 
 a = np.array([[1,2],[3,4]])
 b = np.array([[5,6],[7,8]])
@@ -101,20 +103,19 @@ li=["python is fun"]
 si="java is not"
 #pour retourner une chaine de caracter
 print(" ".join(li))
-#pour retourner une liste des chaine de caractere 
-print(si.split(" "))      
+#pour retourner une liste des chaine de caractere
+print(si.split(" "))
 
 for i in range(1,4):
     print(i)
 for i in range(1,4):
     print(i,end=" ")
-#par default quand tu afis un print ya un saut de ligne automatique 
+#par default quand tu afis un print ya un saut de ligne automatique
 print("")
 for i in range(1,4):
     print(i,end="\n")
 
-#on peut simuler un barre de progression 
-import time
+#on peut simuler un barre de progression
 for i in range(5):
     print(".", end="")
     time.sleep(0.5)
@@ -135,10 +136,11 @@ names=["rabah","anis"]
 ages = [31,32]
 print(list(zip(names,ages)))
 
-#si tu veux utiliser un retour multiple(flux de valeurs) et quand tu veux pas stocker en mémoire 
+#si tu veux utiliser un retour multiple(flux de valeurs) et quand tu veux pas stocker en mémoire
 def count_up():
+    "Un générateur qui compte à partir de 1."
 
-    yield 1 
+    yield 1
     yield 2
 gen = count_up()
 print(next(gen))
@@ -153,6 +155,7 @@ d['z']=d['y']+5
 print(d)
 
 def fibo(n):
+    "Un générateur qui calcule le n-ième nombre de Fibonacci."
     if n<=1:
         return n
     else:
@@ -160,13 +163,14 @@ def fibo(n):
 print(fibo(0))
 print(fibo(1))
 print(fibo(2))
-print(fibo(3))    
+print(fibo(3))
 print(fibo(4))
 print(fibo(5))
 print(fibo(6))
 print(fibo(7))
 
 def fact(n):
+    "Un générateur qui calcule le factoriel de n."
     if n==0:
         return 1
     else:
@@ -188,7 +192,7 @@ for _ in range(7):
 for i in range(7):
     print(i," ok")
 
-a, *_ = [1, 2, 3, 4] #pour ignorer plsr valeurs 
+a, *_ = [1, 2, 3, 4] #pour ignorer plsr valeurs
 print(a)
 
 data = [(1, "A"), (2, "B"), (3, "C")]
@@ -205,6 +209,7 @@ for i in range(0,4):
     print(tup[i])
 
 def modif_valeur(a):
+    "Modifie la valeur de a en ajoutant 5."
     a=10
     print(a)
 
@@ -213,7 +218,7 @@ print(test)
 modif_valeur(test)
 print(test)
 
-#pour afficher le byte d'un caractere 
+#pour afficher le byte d'un caractere
 x=b"ABC"
 print(x[0])
 
@@ -290,7 +295,7 @@ v = d.pop('xyz', 'défaut')
 print(v)
 del d['ville']
 print(d)             # supprime la clé (KeyError si absent)
-v = d.pop('age') 
+v = d.pop('age')
 print(v)
 
 
@@ -307,7 +312,7 @@ t.index(3)          # 2
 print(t.index(2, 2))
 
 lst = [3, 1, 4, 1, 5, 9, 2, 6]
-x = lst.pop(0) 
+x = lst.pop(0)
 print(x)
 print(lst)
 
@@ -342,12 +347,12 @@ ran3=list(set(l1) ^ set(l2))
 print(ran3)
 
 def asy(s):
+    "Compte le nombre de voyelles dans une chaîne."
     return sum(1 for char in s if char.lower() in "oueyia")
 print(asy("audiu"))
 
 def somm(a,b):
+    "Calcule la somme de deux nombres."
     while b!=0:
         a,b=b,a<b
-    return a 
-
-
+    return a

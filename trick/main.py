@@ -245,7 +245,7 @@ jeu()
 #affich la somme des deux des
 
 def som_des():
-    ""Affiche la somme de deux dés lancés aléatoirement."
+    "Affiche la somme de deux dés lancés aléatoirement."
     a= random.randint(1,6)
     b=random.randint(1,6)
     t = a+b
@@ -289,7 +289,9 @@ def bubble(valuee):
     "algorithme de tri bubble"
     t=len(valuee)
     for p in range(t-1):
+        
         swap=False
+
         for i in range(t-1-p):
             if valuee[i]>valuee[i+1]:
                 valuee[i], valuee[i+1]=valuee[i+1],valuee[i]
@@ -297,6 +299,7 @@ def bubble(valuee):
         if not swap:
                 break
     return valuee
+
 print(bubble([6,5,4,2,1,4,6,8,0,1,2,4]))
 
 n=6
