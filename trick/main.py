@@ -85,6 +85,7 @@ print(som(10))#6
 # tres important: en python si je fais print ca va m'afficher none a la fin de la boucle 
 #solution A
 def mult(t):
+    "afficher la table de multiplication d'un nombre t"
     for i in range(11):
         print(i, "*",t,'=', i*t)
      
@@ -96,14 +97,16 @@ for i in range(11):
 
 # un affichage dans une liste
 def mult1(t):
+    "afficher la table de multiplication d'un nombre t"
     lis=[]
     for i in range(11):
         lis.append(i*t)
     return lis
 print(mult1(5))
 
- #methode plus optimale    
+#methode plus optimale    
 def mult2(t):
+    "afficher la table de multiplication d'un nombre t"
     return [i*t for i in range(11)]
 
 print(mult2(5))
@@ -154,6 +157,7 @@ print(" ".join(wods))
 
 #decorateur
 def my_decorator(func):
+    "Un décorateur qui affiche un message avant et après l'appel de la fonction."
     def wrapper():
         print("avant l'appel de la fonction")
         result = func()
@@ -162,6 +166,7 @@ def my_decorator(func):
     return wrapper
 @my_decorator
 def saluer():
+    "Une fonction qui affiche un message de salutation."
     print("Bonjour !")
 
 saluer()
@@ -177,6 +182,7 @@ print(s)
 #factoreil
 print("afficher le factoriel d'un nombre donner")
 def fact(t):
+    "Calculer le factoriel d'un nombre t."
     if t==0:
         return 1
     return t*fact(t-1)
@@ -185,6 +191,7 @@ print(fact(3))
 #nombre premier 
 
 def premier(t):
+    "Vérifie si un nombre t est premier."
     if t < 2:
         return False
     for i in range(2, t):
@@ -199,7 +206,7 @@ def comp(mot):
     "Compte le nombre de mots dans une chaîne."
     #cpt=" ".join(mot) #pour les caracteres 
     cpt = mot.split()
-    return cpt.__len__()
+    return len(cpt)
 
 a="bonjour dev, comment vas tu !"
 print(comp(a))
@@ -238,6 +245,7 @@ jeu()
 #affich la somme des deux des
 
 def som_des():
+    ""Affiche la somme de deux dés lancés aléatoirement."
     a= random.randint(1,6)
     b=random.randint(1,6)
     t = a+b
