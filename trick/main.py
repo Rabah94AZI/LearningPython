@@ -1,412 +1,609 @@
-
-#test sur les fonctions 
-def lo(x):
-    if x==1:
-        return 1
-    else:
-        return (x+lo(x-1))
-
-res=lo(3)
-print(res)
-
-#test sur les listes, 
-w=["python","is","awesoome"]
-#test join retour ?
-print("-".join(w))
-
-z="ami"
-print(z*3) #ca doit retourner amiamiami
-
-a=int('11',2)
-print(a)#affichage dans la base 2
+"""Exercices Python : fonctions, listes, algorithmes et affichage."""
 
 
-var = int(8.9)
-print(var)#récupérer la partie entière 
-
-l=[1,2,3,4]
-
-for i in range(3): 
-    print(i)
-
-print()
-print("----------parité")
-#programme pour afficher les noms paires et impaires
-nbr=5
-
-if(nbr % 2 ==0):
-    print(f"le nombre {nbr} est paire")
-else:
-    print(f"le nombre {nbr} est impaire")
-
-#programme calculatrice 
-print("-----------calculatrice ")
-
-def cal(a,b,op):
-    if op=="+":
-        return a+b
-    elif op=="-":
-        return a-b
-    elif op=="*":
-        return a*b
-    elif op=="/":
-        return a/b 
-print(cal(2,3,"+"))  #5
-print(cal(2,3,"-")) #-1
-print(cal(2,3,"*")) #6
-print(cal(2,3,"/")) #0.666
-print(cal(6,3,"/")) #2
-
-#programme afficher le plus grand nombre entre 3 nbr
-print("programme afficher le plus grand nombre entre 3 nbr")
-def maxi(a,b,c):
-    if a>b & a>c:
-        return a
-    elif b>a & b>c:
-        return b
-    else: 
-        return c
-    
-print(maxi(1,2,3)) #3
-print(maxi(-1,-2,-3)) #-1
-
-
-print("afficher la somme de 1 a N")
-
-def som(t):
-    s=0
-    for i in range(t+1):
-        #print(i)
-        s+=i
-    return s
-
-print(som(3))#6
-print(som(10))#6
-# tres important: en python si je fais print ca va m'afficher none a la fin de la boucle 
-#solution A
-def mult(t):
-    for i in range(11):
-        print(i, "*",t,'=', i*t)
-     
-#mult(5)
-
-for i in range(11):
-    print(f'table de mult de {i}')
-    mult(i)
-
-# un affichage dans une liste
-def mult1(t):
-    lis=[]
-    for i in range(11):
-        lis.append(i*t)
-    return lis
-print(mult1(5))
-
- #methode plus optimale    
-def mult2(t):
-    return [i*t for i in range(11)]
-
-print(mult2(5))
-
-#ajouter un programme qui  devine un nombre 
-t=100
 import random
-rr= random.randint(1,100)
-print("la valeur de random est :",rr)
-print("la valeur de t est :", t)
-if rr==t:
-    print("vous avez gagné!")
-elif rr>t:
-    print("tres petit")
-elif rr<t:
-    print("tres grand")
-
-print("affichage inv d'une chaine de caractere")
-mot="david raya"
-print(mot[::-1])
-print("affichage de l'in en utilisant boucle for")
-mot2="david raya"
-inv=""
-for i in mot2:
-    inv=i+inv
-print(inv)
-
-mot3="salut rabah"
-inv_word=reversed(mot3)
-print(inv_word)
-
-mot3 = "salut rabah"
-inv_word = ''.join(reversed(mot3))
-print(inv_word)
-
-wods=["python", "is","fun"]
-se=""
-for i,w in enumerate(wods):
-    se+=w
-    print(i,w)
-    if i < len(wods)-1:
-        se+=" "
-print(se)
-#programme optimisé
-wods=["python", "is","fun"] 
-print(" ".join(wods))
+from functools import wraps
 
 
-#decorateur
-def my_decorator(func):
+def lo(value):
+    """Calcule récursivement la somme de 1 à value."""
+    if value == 1:
+        return 1
+    return value + lo(value - 1)
+
+
+def test_bases():
+    """Teste quelques fonctionnalités de base de Python."""
+    print("---------- Bases Python ----------")
+
+    result = lo(3)
+    print("Somme récursive de 1 à 3 :", result)
+
+    words = ["python", "is", "awesome"]
+    print("-".join(words))
+
+    word = "ami"
+    print(word * 3)
+
+    binary_value = int("11", 2)
+    print("11 en base 2 :", binary_value)
+
+    integer_value = int(8.9)
+    print("Partie entière de 8.9 :", integer_value)
+
+    numbers = [1, 2, 3, 4]
+    print("Liste :", numbers)
+
+    for index in range(3):
+        print(index)
+
+
+def test_parite():
+    """Teste la parité d'un nombre."""
+    print("---------- Parité ----------")
+
+    number = 5
+
+    if number % 2 == 0:
+        print(f"Le nombre {number} est pair.")
+    else:
+        print(f"Le nombre {number} est impair.")
+
+
+def cal(first_number, second_number, operator):
+    """Effectue une opération arithmétique."""
+    if operator == "+":
+        return first_number + second_number
+
+    if operator == "-":
+        return first_number - second_number
+
+    if operator == "*":
+        return first_number * second_number
+
+    if operator == "/":
+        return first_number / second_number
+
+    raise ValueError("Opérateur non reconnu.")
+
+
+def test_calculatrice():
+    """Teste la calculatrice."""
+    print("---------- Calculatrice ----------")
+
+    print(cal(2, 3, "+"))
+    print(cal(2, 3, "-"))
+    print(cal(2, 3, "*"))
+    print(cal(2, 3, "/"))
+    print(cal(6, 3, "/"))
+
+
+def maxi(first_number, second_number, third_number):
+    """Retourne le plus grand de trois nombres."""
+    return max(first_number, second_number, third_number)
+
+
+def test_maxi():
+    """Teste la fonction maxi."""
+    print("---------- Maximum ----------")
+
+    print(maxi(1, 2, 3))
+    print(maxi(-1, -2, -3))
+
+
+def som(number):
+    """Calcule la somme des nombres de 1 à number."""
+    total = 0
+
+    for current_number in range(number + 1):
+        total += current_number
+
+    return total
+
+
+def test_somme():
+    """Teste le calcul d'une somme."""
+    print("---------- Somme ----------")
+
+    print(som(3))
+    print(som(10))
+
+
+def mult(number):
+    """Affiche la table de multiplication d'un nombre."""
+    for multiplier in range(11):
+        print(f"{multiplier} * {number} = {multiplier * number}")
+
+
+def mult1(number):
+    """Retourne la table de multiplication sous forme de liste."""
+    result = []
+
+    for multiplier in range(11):
+        result.append(multiplier * number)
+
+    return result
+
+
+def mult2(number):
+    """Retourne la table de multiplication avec une compréhension."""
+    return [multiplier * number for multiplier in range(11)]
+
+
+def test_multiplication():
+    """Teste les différentes méthodes de multiplication."""
+    print("---------- Tables de multiplication ----------")
+
+    for number in range(11):
+        print(f"Table de multiplication de {number}")
+        mult(number)
+
+    print(mult1(5))
+    print(mult2(5))
+
+
+def test_random():
+    """Teste la génération d'un nombre aléatoire."""
+    print("---------- Random ----------")
+
+    target = 100
+    random_number = random.randint(1, 100)
+
+    print("La valeur de random est :", random_number)
+    print("La valeur cible est :", target)
+
+    if random_number == target:
+        print("Vous avez gagné !")
+    elif random_number > target:
+        print("Le nombre généré est trop grand.")
+    else:
+        print("Le nombre généré est trop petit.")
+
+
+def test_reverse():
+    """Teste différentes méthodes pour inverser une chaîne."""
+    print("---------- Inversion de chaîne ----------")
+
+    word = "david raya"
+
+    print("Méthode slicing :", word[::-1])
+
+    reversed_word = ""
+
+    for character in word:
+        reversed_word = character + reversed_word
+
+    print("Méthode boucle :", reversed_word)
+
+    another_word = "salut rabah"
+    reversed_iterator = reversed(another_word)
+
+    print("Avec join :", "".join(reversed_iterator))
+
+
+def test_join():
+    """Teste différentes méthodes pour joindre des chaînes."""
+    print("---------- Join ----------")
+
+    words = ["python", "is", "fun"]
+    result = ""
+
+    for index, word in enumerate(words):
+        result += word
+
+        print(index, word)
+
+        if index < len(words) - 1:
+            result += " "
+
+    print(result)
+
+    print(" ".join(words))
+
+
+def my_decorator(function):
+    """Crée un décorateur affichant des messages avant et après une fonction."""
+
+    @wraps(function)
     def wrapper():
-        print("avant l'appel de la fonction")
-        result = func()
-        print("apres l'appel de la fonction")
+        """Exécute la fonction décorée avec des messages."""
+        print("Avant l'appel de la fonction.")
+        result = function()
+        print("Après l'appel de la fonction.")
         return result
+
     return wrapper
+
+
 @my_decorator
 def saluer():
+    """Affiche un message de salutation."""
     print("Bonjour !")
 
-saluer()
-#compter les voyelles 
-print("compter le nombre des voyelles")
-mot="abcefgiuo"
-s=0
-for i in mot:
-    if i in ("a","u","i","o","e","y"):
-        s=s+1
-print(s)   
 
-#factoreil
-print("afficher le factoriel d'un nombre donner")
-def fact(t):
-    if t==0:
+def test_decorator():
+    """Teste le décorateur."""
+    print("---------- Décorateur ----------")
+    saluer()
+
+
+def compter_voyelles(word):
+    """Compte le nombre de voyelles dans une chaîne."""
+    vowels = "aeiouy"
+    count = 0
+
+    for character in word.lower():
+        if character in vowels:
+            count += 1
+
+    return count
+
+
+def test_voyelles():
+    """Teste le comptage des voyelles."""
+    print("---------- Voyelles ----------")
+
+    word = "abcefgiuo"
+    print(compter_voyelles(word))
+
+
+def fact(number):
+    """Calcule récursivement le factoriel d'un nombre."""
+    if number == 0:
         return 1
-    return t*fact(t-1)
-print(fact(3))
 
-#nombre premier 
+    return number * fact(number - 1)
 
-def premier(t):
-    if t < 2:
+
+def test_factoriel():
+    """Teste le calcul du factoriel."""
+    print("---------- Factoriel ----------")
+    print(fact(3))
+
+
+def premier(number):
+    """Vérifie si un nombre est premier."""
+    if number < 2:
         return False
-    for i in range(2, t):
-        if t % i == 0:
+
+    for divisor in range(2, number):
+        if number % divisor == 0:
             return False
-    return True        
-print(premier(5))
-print(premier(10))
+
+    return True
 
 
-def comp(mot):
-    #cpt=" ".join(mot) #pour les caracteres 
-    cpt = mot.split()
-    return cpt.__len__()
+def test_premier():
+    """Teste la détection des nombres premiers."""
+    print("---------- Nombre premier ----------")
 
-a="bonjour dev, comment vas tu !"
-print(comp(a))
-import random
-a=random.randint(1,3)
-print(a)
+    print(premier(5))
+    print(premier(10))
 
-import random
+
+def comp(sentence):
+    """Compte le nombre de mots dans une chaîne."""
+    words = sentence.split()
+    return len(words)
+
+
+def test_compteur_mots():
+    """Teste le compteur de mots."""
+    print("---------- Compteur de mots ----------")
+
+    sentence = "bonjour dev, comment vas tu !"
+    print(comp(sentence))
+
 
 def jeu():
-    choix = ["pierre", "papier", "ciseaux"]
-    #random.choice c'est prédéfinie 
-    ordi = random.choice(choix)
-    
-    joueur = input("choisis pierre, papier ou ciseaux : ").lower()
+    """Lance une partie de pierre-papier-ciseaux."""
+    choices = ["pierre", "papier", "ciseaux"]
+    computer = random.choice(choices)
 
-    print("ordinateur :", ordi)
+    player = input(
+        "Choisis pierre, papier ou ciseaux : "
+    ).lower()
 
-    if joueur == ordi:
-        print("égalité")
-    elif (joueur == "pierre" and ordi == "ciseaux") or \
-         (joueur == "papier" and ordi == "pierre") or \
-         (joueur == "ciseaux" and ordi == "papier"):
-        print("tu as gagné !")
+    print("Ordinateur :", computer)
+
+    winning_choices = {
+        "pierre": "ciseaux",
+        "papier": "pierre",
+        "ciseaux": "papier",
+    }
+
+    if player not in choices:
+        print("Choix invalide.")
+    elif player == computer:
+        print("Égalité.")
+    elif winning_choices[player] == computer:
+        print("Tu as gagné !")
     else:
-        print("tu as perdu ")
+        print("Tu as perdu !")
 
-jeu()
 
-#affich la somme des deux des
-import random
 def som_des():
-    a= random.randint(1,6)
-    b=random.randint(1,6)
-    t = a+b
-    print(f"le des 1 : {a}")
-    print(f"le des 2 : {b}")
-    print(f"résultat des deux dès : {t}")
-som_des()
+    """Affiche la somme de deux dés lancés aléatoirement."""
+    first_dice = random.randint(1, 6)
+    second_dice = random.randint(1, 6)
+    total = first_dice + second_dice
 
-def tri(liste):
-    t = len(liste)
-
-    for i in range(t):
-
-        for j in range(i+1, t):
-            if liste[j] < liste[i]:
-                i = j
-
-        liste[i], liste[i] = liste[i], liste[i]
-
-    return liste
+    print(f"Le dé 1 : {first_dice}")
+    print(f"Le dé 2 : {second_dice}")
+    print(f"Résultat des deux dés : {total}")
 
 
-nbr= "3 2 1"
-print(nbr.split())
-map(int,nbr.split())
-print(list(map(int,nbr.split())))
-liste = list(map(int, nbr.split()))
+def tri(numbers):
+    """Trie une liste avec l'algorithme de sélection."""
+    size = len(numbers)
 
-#nbr = input("Donne des nbr separes par espace : ")
-#retourne une liste des entoers a partir d'un chaine de nombre taper par l'utilisateur
-#liste = list(map(int, nbr.split()))
-liste=[3,4,2,1,3,5,6,1,1,2,4,5,3,0]
-print("Liste triee :", tri(liste))
+    for index in range(size):
+        minimum_index = index
 
-#Bubble sort
+        for current_index in range(index + 1, size):
+            if numbers[current_index] < numbers[minimum_index]:
+                minimum_index = current_index
 
-print("----------------------------Bubble sort-----------------------------------")
-def bubble(a):
-    t=len(a)
-    for p in range(t-1):
-        swap=False
-        for i in range(t-1-p):
-            if a[i]>a[i+1]:
-                a[i], a[i+1]=a[i+1],a[i]
-                swap=True
-        if not swap:
-                break
-    return a
-print(bubble([6,5,4,2,1,4,6,8,0,1,2,4]))
+        numbers[index], numbers[minimum_index] = (
+            numbers[minimum_index],
+            numbers[index],
+        )
 
-n=6
-for  i in range(1,n+1):
-    #n-i c'est le decalage plus end= " " pour faie le schema
-    print(" " * (n - i), end="")
-    for j in range(i):
-        print("*", end =" ")
-    print()
-n=6
-for i in range(1,n+1):
-
-    for j in range(i):
-        print("*", end =" ")
-    print()
-
-n = 6
-for i in range(n, 0, -1):
-    for j in range(i):
-        print("*", end=" ")
-    print()
+    return numbers
 
 
-n=6
-for  i in range(1,n+1):
-    # n-i c'est le decalage plus end= " " pour faie le schema
-    print(" " * (n - i), end="")
-    for j in range(i):
-        print("*", end =" ")
-    print()
-for  i in range(n-1,0,-1):
-    # n-i c'est le decalage plus end= " " pour faie le schema
-    print(" " * (n - i), end="")
-    for j in range(i):
-        print("*", end =" ")
-    print()
+def test_tri():
+    """Teste le tri par sélection."""
+    print("---------- Selection sort ----------")
 
-n=6
-for i in range(1,n+1):
-    for j in range(1,i+1):
-        print(j,end="")
-    print()
+    numbers = [3, 4, 2, 1, 3, 5, 6, 1, 1, 2, 4, 5, 3, 0]
 
-n = 6
-for i in range(n):
-    for j in range(n):
-        if i == 0 or i == n-1 or j == 0 or j == n-1:
+    print("Liste triée :", tri(numbers))
+
+
+def bubble(numbers):
+    """Trie une liste avec l'algorithme Bubble Sort."""
+    size = len(numbers)
+
+    for pass_number in range(size - 1):
+        swapped = False
+
+        for index in range(size - 1 - pass_number):
+            if numbers[index] > numbers[index + 1]:
+                numbers[index], numbers[index + 1] = (
+                    numbers[index + 1],
+                    numbers[index],
+                )
+                swapped = True
+
+        if not swapped:
+            break
+
+    return numbers
+
+
+def test_bubble():
+    """Teste le Bubble Sort."""
+    print("---------- Bubble Sort ----------")
+
+    numbers = [6, 5, 4, 2, 1, 4, 6, 8, 0, 1, 2, 4]
+
+    print("Liste triée :", bubble(numbers))
+
+
+def afficher_triangle_centre(size):
+    """Affiche un triangle centré."""
+    for row in range(1, size + 1):
+        print(" " * (size - row), end="")
+
+        for _ in range(row):
             print("*", end=" ")
-        else:
-            print(" ", end=" ")
-    print()
 
-#table multiplication 
-for i in range(11):
-    
-    for j in range(1,11):
-        print(j,"*",i,"=",i*j,end="|")
-    print()
+        print()
 
-n = 6
-for i in range(n, 0, -1):
-    print("  " * (n - i), end="")
-    for j in range(i):
-        print("*", end=" ")
-    print()
 
-n=5
-for  i in range(n,0,-1):
-    for j in range(i,0,-1):
-        print(j," ",end="")
-    print()
-
-"""
-5 4 3 2 1
-4 3 2 1
-3 2 1
-2 1
-1
-"""
-
-n=6
-for i in range(1,n):
-    for j in range(1,n):
-        if i==j:
-            print(" "*(n-i),"*",end="")
-    print()
-
-"""
-*       *
-  *   *
-    *
-  *   *
-*       *
-"""
-
-n=5
-for i in range(n):
-    for j in range(n):
-        if i == j or i + j == n - 1:
+def afficher_triangle_croissant(size):
+    """Affiche un triangle croissant."""
+    for row in range(1, size + 1):
+        for _ in range(row):
             print("*", end=" ")
-        else:
-            print(" ", end=" ")
-    print()
 
-n=1
-
-for i in range(1,5):
-    for j in range(i):
-        print(n,end ="")
-        n+=1
-    print()
-
-"""
-1
-2 3
-4 5 6
-7 8 9 10
-"""
-
-for i in range(1,5):
-    for j in range(i):
-        print(i,end="")
-    print()
+        print()
 
 
-"""
-1
-2 2
-3 3 3
-4 4 4 4
-"""
+def afficher_triangle_decroissant(size):
+    """Affiche un triangle décroissant."""
+    for row in range(size, 0, -1):
+        for _ in range(row):
+            print("*", end=" ")
+
+        print()
+
+
+def afficher_diamant(size):
+    """Affiche un diamant."""
+    afficher_triangle_centre(size)
+
+    for row in range(size - 1, 0, -1):
+        print(" " * (size - row), end="")
+
+        for _ in range(row):
+            print("*", end=" ")
+
+        print()
+
+
+def afficher_triangle_nombres(size):
+    """Affiche un triangle de nombres croissants."""
+    for row in range(1, size + 1):
+        for number in range(1, row + 1):
+            print(number, end="")
+
+        print()
+
+
+def afficher_carre(size):
+    """Affiche un carré avec uniquement les contours."""
+    for row in range(size):
+        for column in range(size):
+            if (
+                row == 0
+                or row == size - 1
+                or column == 0
+                or column == size - 1
+            ):
+                print("*", end=" ")
+            else:
+                print(" ", end=" ")
+
+        print()
+
+
+def afficher_table_multiplication():
+    """Affiche les tables de multiplication de 0 à 10."""
+    for first_number in range(11):
+        for second_number in range(1, 11):
+            print(
+                second_number,
+                "*",
+                first_number,
+                "=",
+                first_number * second_number,
+                end=" | ",
+            )
+
+        print()
+
+
+def afficher_triangle_decroissant_decale(size):
+    """Affiche un triangle décroissant décalé."""
+    for row in range(size, 0, -1):
+        print("  " * (size - row), end="")
+
+        for _ in range(row):
+            print("*", end=" ")
+
+        print()
+
+
+def afficher_nombres_decroissants(size):
+    """Affiche des nombres décroissants sur chaque ligne."""
+    for row in range(size, 0, -1):
+        for number in range(row, 0, -1):
+            print(number, end=" ")
+
+        print()
+
+
+def afficher_diagonale(size):
+    """Affiche une diagonale descendante."""
+    for row in range(1, size):
+        for column in range(1, size):
+            if row == column:
+                print(" " * (size - row), "*", end="")
+
+        print()
+
+
+def afficher_x(size):
+    """Affiche un X avec des étoiles."""
+    for row in range(size):
+        for column in range(size):
+            if row == column or row + column == size - 1:
+                print("*", end=" ")
+            else:
+                print(" ", end=" ")
+
+        print()
+
+
+def afficher_compteur_triangle():
+    """Affiche des nombres consécutifs dans un triangle."""
+    number = 1
+
+    for row in range(1, 5):
+        for _ in range(row):
+            print(number, end="")
+            number += 1
+
+        print()
+
+
+def afficher_triangle_lignes():
+    """Affiche le numéro de ligne plusieurs fois."""
+    for row in range(1, 5):
+        for _ in range(row):
+            print(row, end="")
+
+        print()
+
+
+def test_affichages():
+    """Exécute les différents exercices d'affichage."""
+    print("---------- Affichages ----------")
+
+    print("Triangle centré")
+    afficher_triangle_centre(6)
+
+    print("Triangle croissant")
+    afficher_triangle_croissant(6)
+
+    print("Triangle décroissant")
+    afficher_triangle_decroissant(6)
+
+    print("Diamant")
+    afficher_diamant(6)
+
+    print("Triangle de nombres")
+    afficher_triangle_nombres(6)
+
+    print("Carré")
+    afficher_carre(6)
+
+    print("Tables de multiplication")
+    afficher_table_multiplication()
+
+    print("Triangle décroissant décalé")
+    afficher_triangle_decroissant_decale(6)
+
+    print("Nombres décroissants")
+    afficher_nombres_decroissants(5)
+
+    print("Diagonale")
+    afficher_diagonale(6)
+
+    print("X")
+    afficher_x(5)
+
+    print("Compteur")
+    afficher_compteur_triangle()
+
+    print("Triangle par ligne")
+    afficher_triangle_lignes()
+
+
+def main():
+    """Lance les différents exercices Python."""
+    test_bases()
+    test_parite()
+    test_calculatrice()
+    test_maxi()
+    test_somme()
+    test_multiplication()
+    test_random()
+    test_reverse()
+    test_join()
+    test_decorator()
+    test_voyelles()
+    test_factoriel()
+    test_premier()
+    test_compteur_mots()
+    som_des()
+    test_tri()
+    test_bubble()
+    test_affichages()
+
+
+if __name__ == "__main__":
+    main()
+
