@@ -453,7 +453,6 @@ def main():
 
     # PGCD
     print(somm(48, 18))
-    
 
 
 if __name__ == "__main__":

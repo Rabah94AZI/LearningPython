@@ -602,8 +602,8 @@ def main():
     test_tri()
     test_bubble()
     test_affichages()
-    
 
 
 if __name__ == "__main__":
     main()
+
