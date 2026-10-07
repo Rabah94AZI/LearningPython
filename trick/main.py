@@ -196,6 +196,7 @@ print(premier(10))
 
 
 def comp(mot):
+    "Compte le nombre de mots dans une chaîne."
     #cpt=" ".join(mot) #pour les caracteres 
     cpt = mot.split()
     return cpt.__len__()
@@ -209,22 +210,28 @@ print(a)
 
 
 def jeu():
+    """Lance une partie de pierre-papier-ciseaux."""
     choix = ["pierre", "papier", "ciseaux"]
-    #random.choice c'est prédéfinie 
     ordi = random.choice(choix)
-    
-    joueur = input("choisis pierre, papier ou ciseaux : ").lower()
 
-    print("ordinateur :", ordi)
+    joueur = input(
+        "Choisis pierre, papier ou ciseaux : "
+    ).lower()
+
+    print("Ordinateur :", ordi)
+
+    gagnant = {
+        "pierre": "ciseaux",
+        "papier": "pierre",
+        "ciseaux": "papier",
+    }
 
     if joueur == ordi:
-        print("égalité")
-    elif (joueur == "pierre" and ordi == "ciseaux") or \
-         (joueur == "papier" and ordi == "pierre") or \
-         (joueur == "ciseaux" and ordi == "papier"):
-        print("tu as gagné !")
+        print("Égalité")
+    elif gagnant.get(joueur) == ordi:
+        print("Tu as gagné !")
     else:
-        print("tu as perdu ")
+        print("Tu as perdu !")
 
 jeu()
 
@@ -271,6 +278,7 @@ print("Liste triee :", tri(liste))
 
 print("----------------------------Bubble sort-----------------------------------")
 def bubble(valuee):
+    "algorithme de tri bubble"
     t=len(valuee)
     for p in range(t-1):
         swap=False
