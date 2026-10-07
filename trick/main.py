@@ -268,17 +268,17 @@ print("Liste triee :", tri(liste))
 #Bubble sort
 
 print("----------------------------Bubble sort-----------------------------------")
-def bubble(a):
-    t=len(a)
+def bubble(valuee):
+    t=len(valuee)
     for p in range(t-1):
         swap=False
         for i in range(t-1-p):
-            if a[i]>a[i+1]:
-                a[i], a[i+1]=a[i+1],a[i]
+            if valuee[i]>valuee[i+1]:
+                valuee[i], valuee[i+1]=valuee[i+1],valuee[i]
                 swap=True
         if not swap:
                 break
-    return a
+    return valuee
 print(bubble([6,5,4,2,1,4,6,8,0,1,2,4]))
 
 n=6
