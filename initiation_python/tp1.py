@@ -1,7 +1,8 @@
 """Exercices d'apprentissage Python : variables, listes, dictionnaires et fonctions."""
 
-import time
+# pylint: disable=too-many-locals,too-many-branches,too-many-statements
 
+import time
 import numpy as np
 
 
@@ -43,7 +44,7 @@ def somm(a, b):
     return a
 
 
-def main():
+def main():  # pylint: disable=too-many-locals,too-many-branches,too-many-statements
     """Exécute les différents exercices Python."""
 
     print("Lancer mon premier programme Python")
