@@ -1,9 +1,14 @@
 
-name: Python CI - Pylint, Pytest and Docker
+name: Python CI/CD - Tests, Docker and Docker Hub
 
-on: [push]
+on:
+  push:
 
 jobs:
+
+  # ==============================
+  # CI : Tests et vérifications
+  # ==============================
   build:
     runs-on: ubuntu-latest
 
@@ -12,11 +17,11 @@ jobs:
         python-version: ["3.8", "3.9", "3.10"]
 
     steps:
-      # 1. Récupérer le code depuis GitHub
+      # 1. Récupérer le code GitHub
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2. Installer la version de Python
+      # 2. Configurer Python
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -33,7 +38,7 @@ jobs:
         run: |
           pylint $(git ls-files '*.py')
 
-      # 5. Exécuter les tests et mesurer la couverture
+      # 5. Tests et couverture
       - name: Run Pytest with Coverage
         run: |
           python -m pytest --cov=trick --cov-report=term-missing
@@ -43,7 +48,43 @@ jobs:
         run: |
           docker build -t learningpython:1.0 .
 
-      # 7. Exécuter les tests dans Docker
+      # 7. Tester dans Docker
       - name: Run tests inside Docker
         run: |
           docker run --rm learningpython:1.0
+
+  # ==============================
+  # CD : Publication Docker Hub
+  # ==============================
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+
+    # Publication uniquement sur main
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      # 8. Récupérer le code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 9. Configurer Docker Buildx
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      # 10. Connexion à Docker Hub
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      # 11. Construire et publier l'image
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: |
+            rabah94azi/learningpython:latest
+            rabah94azi/learningpython:${{ github.sha }}
