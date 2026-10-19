@@ -1,0 +1,90 @@
+
+name: Python CI/CD - Tests, Docker and Docker Hub
+
+on:
+  push:
+
+jobs:
+
+  # ==============================
+  # CI : Tests et vérifications
+  # ==============================
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        python-version: ["3.8", "3.9", "3.10"]
+
+    steps:
+      # 1. Récupérer le code GitHub
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Configurer Python
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      # 3. Installer les dépendances
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pylint pytest pytest-cov numpy
+
+      # 4. Vérifier la qualité du code
+      - name: Run Pylint
+        run: |
+          pylint $(git ls-files '*.py')
+
+      # 5. Tests et couverture
+      - name: Run Pytest with Coverage
+        run: |
+          python -m pytest --cov=trick --cov-report=term-missing
+
+      # 6. Construire l'image Docker
+      - name: Build Docker image
+        run: |
+          docker build -t learningpython:1.0 .
+
+      # 7. Tester dans Docker
+      - name: Run tests inside Docker
+        run: |
+          docker run --rm learningpython:1.0
+
+  # ==============================
+  # CD : Publication Docker Hub
+  # ==============================
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+
+    # Publication uniquement sur main
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      # 8. Récupérer le code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 9. Configurer Docker Buildx
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      # 10. Connexion à Docker Hub
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      # 11. Construire et publier l'image
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: |
+            rabah94azi/learningpython:latest
+            rabah94azi/learningpython:${{ github.sha }}
