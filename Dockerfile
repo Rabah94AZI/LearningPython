@@ -3,8 +3,13 @@ FROM python:3.10-slim
 
 WORKDIR /app
 
-RUN pip install --no-cache-dir pytest pytest-cov numpy
+COPY requirements.txt .
 
-COPY trick/ ./trick/
+RUN pip install --no-cache-dir -r requirements.txt
 
-CMD ["python", "-m", "pytest", "trick/tests", "--cov=trick", "--cov-report=term-missing"]
+COPY api/ ./api/
+
+EXPOSE 8000
+
+CMD ["python", "-m", "uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8000"]
+
